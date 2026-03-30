@@ -53,25 +53,3 @@ int	main()
 	std::cout<< RESET<<"Thank you for using my PhoneBook app!"<< RESET<< std::endl;
 	return (0);
 }
-
-/*
-int	main()
-{
-	int	i;
-	Contact NewContact;
-
-	NewContact.id = 33;
-	NewContact.SetField (FirstName, "Obama");
-	NewContact.SetField (PhoneNumber, "+4922713321");
-	NewContact.SetField (NickName, "Who's in?");
-
-	i = 0;
-	while (i < CategoryCount)
-	{
-		std::cout<< NewContact.GetField (i)<< std::endl;
-		i ++;
-	}
-
-	return (0);
-}
-	*/
