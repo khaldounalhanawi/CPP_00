@@ -3,6 +3,11 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define BLUE "\033[34m"
+#define RESET "\033[0m"
+
 int	main()
 {
 	PhoneBook	myPhoneBook;
@@ -11,22 +16,41 @@ int	main()
 	int			counter;
 
 	counter = 0;
-	message = "Please enter one of these options:\n\tadd:\tto add a new contact\n\tsearch:\tto display all your contacts\n\texit:\tto exit";
+	message = 
+		RESET "Please enter one of these commands:\n"
+		BLUE "ADD:\t"
+		GREEN "to add a new contact\n"
+		BLUE "SEARCH:\t"
+		GREEN "to display all your contacts\n"
+		BLUE "EXIT:\t"
+		GREEN "to exit";
 	while (1)
 	{
-		std::cout<< message<< std::endl;
+		std::cout<< message<< BLUE<< std::endl;
 		std::getline (std::cin, prompt);
-		if (prompt == "add")
+		if (prompt == "ADD")
 		{
 			myPhoneBook.AddBook (counter % BookCapacity);
 			counter ++;
 		}
-		else if (prompt == "search")
+		else if (prompt == "SEARCH")
 			myPhoneBook.search ();
-		else if (prompt == "exit")
+		else if (prompt == "EXIT")
 			break;
+		else
+		{
+			std::cout << "\033[2J\033[H";
+			continue;
+		}
+		std::cout<< RESET<< "Press Enter to continue.."<< std::endl;
+		std::getline (std::cin, prompt);
+		if (prompt == "")
+		{
+			std::cout << "\033[2J\033[H";
+			continue;
+		}
 	}
-	std::cout<< "Thank you for using my PhoneBook app!"<< std::endl;
+	std::cout<< RESET<<"Thank you for using my PhoneBook app!"<< RESET<< std::endl;
 	return (0);
 }
 

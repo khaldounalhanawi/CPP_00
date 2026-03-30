@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Contact.hpp"
 
-static const int	BookCapacity = 2;
+static const int	BookCapacity = 8;
 
 class	PhoneBook
 {
