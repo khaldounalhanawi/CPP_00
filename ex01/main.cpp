@@ -8,22 +8,22 @@
 #define BLUE "\033[34m"
 #define RESET "\033[0m"
 
+static const std::string message =
+	RESET "Please enter one of these commands:\n"
+	BLUE "ADD:\t"
+	GREEN "to add a new contact\n"
+	BLUE "SEARCH:\t"
+	GREEN "to display all your contacts\n"
+	BLUE "EXIT:\t"
+	GREEN "to exit";
+
 int	main()
 {
 	PhoneBook	myPhoneBook;
 	std::string	prompt;
-	std::string	message;
 	int			counter;
 
 	counter = 0;
-	message = 
-		RESET "Please enter one of these commands:\n"
-		BLUE "ADD:\t"
-		GREEN "to add a new contact\n"
-		BLUE "SEARCH:\t"
-		GREEN "to display all your contacts\n"
-		BLUE "EXIT:\t"
-		GREEN "to exit";
 	while (1)
 	{
 		std::cout<< message<< BLUE<< std::endl;
