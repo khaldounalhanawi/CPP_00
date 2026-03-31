@@ -27,6 +27,7 @@ int	main()
 	while (1)
 	{
 		std::cout<< message<< BLUE<< std::endl;
+		prompt.clear ();
 		std::getline (std::cin, prompt);
 		if (prompt == "ADD")
 		{
@@ -44,11 +45,7 @@ int	main()
 		}
 		std::cout<< RESET<< "Press Enter to continue.."<< std::endl;
 		std::getline (std::cin, prompt);
-		if (prompt == "")
-		{
-			std::cout << "\033[2J\033[H";
-			continue;
-		}
+		std::cout << "\033[2J\033[H";
 	}
 	std::cout<< RESET<<"Thank you for using my PhoneBook app!"<< RESET<< std::endl;
 	return (0);
