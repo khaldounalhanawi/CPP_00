@@ -28,7 +28,8 @@ int	main()
 	{
 		std::cout<< message<< BLUE<< std::endl;
 		prompt.clear ();
-		std::getline (std::cin, prompt);
+		if (!std::getline (std::cin, prompt))
+			break;
 		if (prompt == "ADD")
 		{
 			myPhoneBook.AddBook (counter % BookCapacity);
