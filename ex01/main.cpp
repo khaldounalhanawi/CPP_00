@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
@@ -8,7 +7,7 @@
 #define BLUE "\033[34m"
 #define RESET "\033[0m"
 
-static const std::string message =
+static const std::string DisplayMessage =
 	RESET "Please enter one of these commands:\n"
 	BLUE "ADD:\t"
 	GREEN "to add a new contact\n"
@@ -26,7 +25,7 @@ int	main()
 	counter = 0;
 	while (1)
 	{
-		std::cout<< message<< BLUE<< std::endl;
+		std::cout<< DisplayMessage<< BLUE<< std::endl;
 		prompt.clear ();
 		if (!std::getline (std::cin, prompt))
 			break;
@@ -48,6 +47,9 @@ int	main()
 		std::getline (std::cin, prompt);
 		std::cout << "\033[2J\033[H";
 	}
-	std::cout<< RESET<<"Thank you for using my PhoneBook app!"<< RESET<< std::endl;
+	std::cout<< RESET
+			 <<"Thank you for using my PhoneBook app!"
+			 << RESET
+			 << std::endl;
 	return (0);
 }

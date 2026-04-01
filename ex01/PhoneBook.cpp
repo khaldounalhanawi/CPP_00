@@ -18,6 +18,11 @@ PhoneBook::~PhoneBook(void)
 	return;
 }
 
+Contact	PhoneBook::GetContact (int id) const
+{
+	return (this->_ContactList[id]);
+}
+
 void	PhoneBook::AddBook(int IndexPosition)
 {
 	Contact		NewContact;
@@ -28,7 +33,12 @@ void	PhoneBook::AddBook(int IndexPosition)
 	i = 0;
 	while (i < CategoryCount)
 	{
-		std::cout<< RED<<"Please enter your "<< names[i]<< " :"<< RESET<<std::endl;
+		std::cout<< RED
+				 <<"Please enter your "
+				 << names[i]
+				 << " :"
+				 << RESET
+				 <<std::endl;
 		buffer.clear ();
 		while (buffer.empty ())
 			if (!std::getline (std::cin, buffer))
@@ -37,7 +47,10 @@ void	PhoneBook::AddBook(int IndexPosition)
 		i ++;
 	}
 	this->_ContactList[IndexPosition] = NewContact;
-	std::cout<< GREEN<<"New contact has been saved!"<< RESET<<std::endl;
+	std::cout<< GREEN
+			 <<"New contact has been saved!"
+			 << RESET
+			 <<std::endl;
 	return;
 }
 
@@ -76,49 +89,58 @@ void	PrintContent(int ColumnCount, int ColumnWidth, std::string *Content)
 			SubString = Content[i].substr (0, ColumnWidth - 1) + ".";
 		else
 			SubString = Content[i];
-		std::cout<< RESET<< "|"<< std::setw (ColumnWidth)<< std::right<< SubString;
+		std::cout<< RESET
+				 << "|"
+				 << std::setw (ColumnWidth)
+				 << std::right
+				 << SubString;
 		i ++;
 	}
-	std::cout<< RESET<< "|"<< std::endl;
+	std::cout<< RESET
+			 << "|"
+			 << std::endl;
 	return;
 }
 
-void	PhoneBook::search(void) const
+void	PrintTable(int ColumnCount, int ColumnWidth, const PhoneBook *book, std::string headers[])
 {
 	int	i;
-	static const int ColumnCount = 4;
-	static const int ColumnWidth = 10;
-	const std::string headers[ColumnCount] = {"Index", "First name", "Last name", "Nickname"};
 	std::string content[ColumnCount];
 
-	if (this->_ContactList[0].id == -1)
-	{
-		std::cout<< RESET<< "PhoneBook is empty! "
-							"please use the 'add' function to fill it."
-							<< std::endl;
-		return;
-	}
 	PrintSeperator (ColumnCount, ColumnWidth, true);
-	PrintContent (ColumnCount, ColumnWidth, (std::string *)headers);
+	PrintContent (ColumnCount, ColumnWidth, headers);
 	i = 0;
 	while (i < BookCapacity)
 	{
-		if (this->_ContactList[i].id != -1)
+		if (book->GetContact(i).id != -1)
 		{
 			PrintSeperator (ColumnCount, ColumnWidth, false);
-			content[0] = this->_ContactList[i].id + '0';
-			content[1] = this->_ContactList[i].GetField (0);
-			content[2] = this->_ContactList[i].GetField (1);
-			content[3] = this->_ContactList[i].GetField (2);
+			content[0] = book->GetContact(i).id + '0';
+			content[1] = book->GetContact(i).GetField (0);
+			content[2] = book->GetContact(i).GetField (1);
+			content[3] = book->GetContact(i).GetField (2);
 			PrintContent (ColumnCount, ColumnWidth, content);
 		}
 		i ++;
 	}
 	PrintSeperator (ColumnCount, ColumnWidth, true);
-	return;
 }
 
-void	PhoneBook::ExitBook(void)
+		// if (book->_ContactList[i].id != -1)
+
+
+void	PhoneBook::search(void) const
 {
+	std::string headers[4] = {"Index", "First name", "Last name", "Nickname"};
+
+	if (this->_ContactList[0].id == -1)
+	{
+		std::cout<< RESET
+				 << "PhoneBook is empty! "
+					"please use the 'add' function to fill it."
+				 << std::endl;
+		return;
+	}
+	PrintTable(4, 10, this, headers);
 	return;
 }

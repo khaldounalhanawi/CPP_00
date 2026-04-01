@@ -14,7 +14,7 @@ class	PhoneBook
 
 		void	AddBook (int IndexPosition);
 		void	search (void) const;
-		void	ExitBook (void);
+		Contact	GetContact (int id) const;
 
 	private:
 		Contact	_ContactList[BookCapacity];
