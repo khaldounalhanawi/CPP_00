@@ -1,52 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   PhoneBook_print.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kalhanaw <kalhanaw@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/02 10:03:09 by kalhanaw          #+#    #+#             */
+/*   Created: 2026/04/02 10:03:16 by kalhanaw          #+#    #+#             */
 /*   Updated: 2026/04/02 10:03:24 by kalhanaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_H
-# define CONTACT_H
+#ifndef PHONE_BOOK_PRINT_HPP
+# define PHONE_BOOK_PRINT_HPP
 
-#include <iostream>
-#include <string>
+#include "PhoneBook.hpp"
 
-enum
-{
-	FirstName,
-	LastName,
-	NickName,
-	PhoneNumber,
-	DarkestSecret,
-	CategoryCount
-};
-
-static std::string names[CategoryCount] =
-{
-	"first name",
-	"last name",
-	"nick name",
-	"phone number",
-	"darkest secret"
-};
-
-class	Contact
-{
-	public:
-		Contact (void);
-		~Contact (void);
-
-		int			id;
-		std::string	GetField(int category) const;
-		void		SetField(int category, std::string content);
-
-	private:
-		std::string	_fields[CategoryCount];
-};
+void	PrintSeperator(int ColumnCount, int ColumnWidth, bool edge);
+void	PrintRow(int ColumnCount, int ColumnWidth, std::string *Content);
+void	PrintTable(int ColumnCount, int ColumnWidth, const PhoneBook *book, std::string headers[]);
+void	PrintContact(Contact contact);
 
 #endif

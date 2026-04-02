@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   colors.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kalhanaw <kalhanaw@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/02 10:03:20 by kalhanaw          #+#    #+#             */
-/*   Updated: 2026/04/02 10:03:24 by kalhanaw         ###   ########.fr       */
+/*   Created: 2026/04/02 10:02:59 by kalhanaw          #+#    #+#             */
+/*   Updated: 2026/04/02 10:03:01 by kalhanaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONE_BOOK_HPP
-# define PHONE_BOOK_HPP
+#ifndef COLORS_HPP
+# define COLORS_HPP
 
-#include <iostream>
-#include "Contact.hpp"
-
-static const int	BookCapacity = 8;
-
-class	PhoneBook
-{
-	public:
-		PhoneBook (void);
-		~PhoneBook (void);
-
-		void	AddBook (int IndexPosition);
-		void	search (void) const;
-		Contact	GetContact (int id) const;
-
-	private:
-		Contact	_ContactList[BookCapacity];
-};
+# define RED	"\033[31m"
+# define GREEN	"\033[32m"
+# define BLUE	"\033[34m"
+# define RESET	"\033[0m"
 
 #endif

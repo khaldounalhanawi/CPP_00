@@ -1,11 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kalhanaw <kalhanaw@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/02 10:02:39 by kalhanaw          #+#    #+#             */
+/*   Updated: 2026/04/02 10:02:40 by kalhanaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
-
-#define RED "\033[31m"
-#define GREEN "\033[32m"
-#define BLUE "\033[34m"
-#define RESET "\033[0m"
+#include "colors.hpp"
 
 static const std::string DisplayMessage =
 	RESET "Please enter one of these commands:\n"
