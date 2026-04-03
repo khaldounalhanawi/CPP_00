@@ -8,7 +8,14 @@ int	Account::_totalNbWithdrawals = 0;
 
 void	Account::_displayTimestamp( void )
 {
-	std::cout<< "[19920104_091532] "; // temp!!
+	std::time_t	time;
+	std::tm		*localtime;
+	char		buffer[18];
+	
+	time = std::time(NULL);
+	localtime = std::localtime(&time);
+	std::strftime( buffer, 18, "[%Y%m%d_%H%M%S]", localtime);
+	std::cout<< buffer << " ";
 	return;
 }
 
