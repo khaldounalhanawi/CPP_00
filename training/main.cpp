@@ -1,12 +1,19 @@
 #include "test.hpp"
 #include <iostream>
+#include <utility>
 
 int	main(void)
 {
-	car first ("Mercedez", 1996);
+	// std::pair <std::string, int> car ("porsche",42);
+	std::pair <std::string, int> car;
+	car = {"BMW", 1997};
+	
+	
 
-	first.changeMake ("BMW");
-	std::cout<< "Modified: "<< first.make<<std::endl;
+
+
+	std::cout<< car.first<< std::endl;
+
 
 	return (0);
 }
