@@ -95,10 +95,10 @@ void	Account::makeDeposit(int deposit)
 			 << std::endl;
 }
 
-// int		Account::checkAmount( void ) const
-// {
-
-// }
+int		Account::checkAmount( void ) const
+{
+	return (this->_amount);
+}
 
 bool	Account::makeWithdrawal(int withdrawal)
 {
