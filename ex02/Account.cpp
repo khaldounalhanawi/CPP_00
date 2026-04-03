@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kalhanaw <kalhanaw@student.42berlin.de>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/03 16:15:20 by kalhanaw          #+#    #+#             */
+/*   Updated: 2026/04/03 16:15:22 by kalhanaw         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "Account.hpp"
 
@@ -88,6 +100,8 @@ void	Account::makeDeposit(int deposit)
 {
 	int	p_amount;
 
+	if (deposit < 0)
+		return;
 	p_amount = this->_amount;
 	this->_amount += deposit;
 	this->_nbDeposits ++;
@@ -111,6 +125,8 @@ bool	Account::makeWithdrawal(int withdrawal)
 {
 	int	p_amount;
 	
+	if (withdrawal < 0)
+		return (false);
 	if (withdrawal > this->_amount)
 	{
 		_displayTimestamp ();
