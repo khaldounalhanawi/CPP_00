@@ -6,13 +6,14 @@
 #    By: kalhanaw <kalhanaw@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/25 15:23:15 by kalhanaw          #+#    #+#              #
-#    Updated: 2026/04/03 16:15:35 by kalhanaw         ###   ########.fr        #
+#    Updated: 2026/04/05 10:45:50 by kalhanaw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = account
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
+HEADER = Account.hpp
 SRCS = Account.cpp \
 	   tests.cpp
 OBJS = $(SRCS:.cpp=.o)
@@ -22,7 +23,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADER)
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
