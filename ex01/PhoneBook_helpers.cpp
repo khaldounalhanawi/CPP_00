@@ -13,6 +13,21 @@
 #include <iostream>
 #include "PhoneBook.hpp"
 #include "colors.hpp"
+#include <sstream>
+
+bool	mini_stoi(std::string str, int &val, int maximum)
+{
+	std::stringstream	sstream(str);
+
+	if (!(sstream >> val))
+		return (false);
+	if (!sstream.eof())
+		return (false);
+	if (val < 0 || val > maximum)
+		return (false);
+	else
+		return (true);
+}
 
 int	GetIdInput(void)
 {
@@ -20,27 +35,19 @@ int	GetIdInput(void)
 	bool		valid;
 	int			RequestedId;
 
-	std::cout<< RESET
-			<< "Please enter ID of the contact you'd like to explore:"
-			<< std::endl;
+	std::cout	<< RESET
+				<< "Please enter ID of the contact you'd like to explore:"
+				<< std::endl;
 	valid = false;
 	while (!valid)
 	{
 		if (!std::getline (std::cin, UserInput))
 			return (-2);
-		try
-		{
-			RequestedId = std::stoi (UserInput);
-		}
-		catch (...)
-		{
-			std::cout<< "Invalid input!"<< std::endl;
-		}
-		if (RequestedId > BookCapacity || RequestedId < 0)
-			std::cout<< "ID has to be between 0 and "
-					 << BookCapacity
-					 << "."
-					 << std::endl;
+		if (!mini_stoi (UserInput, RequestedId, BookCapacity - 1))
+			std::cout	<< "ID has to be between 0 and "
+						<< BookCapacity
+						<< "."
+						<< std::endl;
 		else
 			valid = true;
 	}
